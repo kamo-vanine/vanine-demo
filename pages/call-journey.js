@@ -1,5 +1,5 @@
 const CallJourneyPage = () => {
-  return <div>call-explorer</div>;
+  return <div>Call Journey</div>;
 };
 
 export default CallJourneyPage;

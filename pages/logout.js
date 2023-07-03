@@ -1,5 +1,5 @@
 const LogoutPage = () => {
-  return <div>call-explorer</div>;
+  return <div>Logout</div>;
 };
 
 export default LogoutPage;

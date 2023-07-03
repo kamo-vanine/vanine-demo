@@ -1,5 +1,5 @@
 const CampaignPage = () => {
-    return <div>call-explorer</div>;
+    return <div>Campaign</div>;
   };
   
   export default CampaignPage;

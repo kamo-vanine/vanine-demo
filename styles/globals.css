@@ -16,16 +16,16 @@
 } */
 
 :root {
-  --main-bg: #F3F3F3;
-  --card-bg: #F6F6F8;
-  --green: #6EBC7F;
-  --red: #C43131;
-  --amber: #F99218;
-  --font: #1F1F1F;
+  --main-bg: #f3f3f3;
+  --card-bg: #f6f6f8;
+  --green: #6ebc7f;
+  --red: #c43131;
+  --amber: #f99218;
+  --font: #1f1f1f;
   --font-grey: #1f1f1f91;
-  --blue: #5882EF;
-  --light-blue: #ECEFF7;
-  --nav-bg: #293A68;
+  --blue: #5882ef;
+  --light-blue: #eceff7;
+  --nav-bg: #293a68;
 }
 
 * {
@@ -33,7 +33,7 @@
 }
 body {
   margin: 0;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 }
 
 h1,
@@ -41,10 +41,12 @@ h2,
 h3 {
   font-family: "Be Vietnam Pro";
   font-weight: 500;
+  color: var(--font);
 }
 
 p,
 span {
   font-family: "Be Vietnam Pro";
   font-weight: 300;
+  color: var(--font);
 }

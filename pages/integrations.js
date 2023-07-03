@@ -1,5 +1,5 @@
 const IntegrationsPage = () => {
-    return <div>call-explorer</div>;
+    return <div>Integrations</div>;
   };
   
   export default IntegrationsPage;

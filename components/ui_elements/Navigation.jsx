@@ -8,13 +8,10 @@ import { MdLocationPin, MdAccountCircle } from "react-icons/md";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-const Navigation = () => {
+const Navigation = ({isDemo}) => {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState("");
 
-  const handleClick = (e) => {
-    console.log(e.target);
-  };
   useEffect(() => {
     setCurrentRoute(router.pathname.split("/")[1]);
   }, [router.pathname]);
