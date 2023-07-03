@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
+
+/* @font-face {
+  font-family: BeVietnamPro_light;
+  src: url("/fonts/BeVietnamPro-Light.ttf");
+}
+
+@font-face {
+  font-family: BeVietnamPro_medium;
+  src: url("/fonts/BeVietnamPro-Medium.ttf");
+}
+
+@font-face {
+  font-family: BeVietnamPro_regular;
+  src: url("/fonts/BeVietnamPro-Regular.ttf");
+} */
+
+:root {
+  --main-bg: #F3F3F3;
+  --card-bg: #F6F6F8;
+  --green: #6EBC7F;
+  --red: #C43131;
+  --amber: #F99218;
+  --font: #1F1F1F;
+  --font-grey: #1f1f1f91;
+  --blue: #5882EF;
+  --light-blue: #ECEFF7;
+  --nav-bg: #293A68;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: #F3F3F3;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Be Vietnam Pro";
+  font-weight: 500;
+}
+
+p,
+span {
+  font-family: "Be Vietnam Pro";
+  font-weight: 300;
+}
