@@ -3,10 +3,11 @@
   grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .container span {
   font-size: 12px;
   color: var(--font-grey);
+  text-align: center;
 }

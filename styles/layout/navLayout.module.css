@@ -1,3 +1,5 @@
 .main {
-    padding-left: 236px;
+  padding-left: 236px;
+  padding-right: 1rem;
+  height: calc(100vh - 84px);
 }

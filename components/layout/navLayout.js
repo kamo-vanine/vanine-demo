@@ -6,7 +6,7 @@ const NavLayout = ({ children }) => {
     <div className={navLayoutStyles.main}>
       <Header />
       <Navigation />
-      <main>{children}</main>
+      {children}
     </div>
   );
 };

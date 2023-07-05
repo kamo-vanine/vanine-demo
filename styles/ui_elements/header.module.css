@@ -2,5 +2,10 @@
   padding: 1rem;
   background-color: var(--card-bg);
   border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

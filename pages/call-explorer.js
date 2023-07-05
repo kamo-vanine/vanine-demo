@@ -3,19 +3,38 @@ import Call from "../components/app_elements/Call";
 import callExplorerStyles from "../styles/pages/callExplorer.module.css";
 import utilityStyles from "../styles/utils/utils.module.css";
 import { useEffect } from "react";
+import { FaUserCircle } from "react-icons/fa";
 import Image from "next/image";
+import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
 
 const CallExplorerPage = () => {
   const [currentTab, setCurrentTab] = useState(1);
 
-  useEffect(() => {
-    console.log(currentTab);
-  }, [currentTab]);
+  const getCalls = async () => {};
+
+  const getCall = async () => {};
+
+  const handleAudioUpload = async (e) => {
+    const file = document.querySelector("#audio").files[0];
+
+    //Call api to handle audio details
+
+    // try {
+    //   await fetch(`${process.env.NEXT_PUBLIC_API_URL}calls`, {
+    //     method: "POST",
+    //     headers: { "Content-type": "application/json" },
+    //     body: JSON.stringify({}),
+    //   });
+    // } catch (e) {
+    //   console.error(e);
+    // }
+    console.log(file);
+  };
+
   return (
     <div className={callExplorerStyles.container}>
       <div className={callExplorerStyles.section}>
         <div className={callExplorerStyles.sectionHeader}>
-          {/* <span></span> */}
           <span>ID</span>
           <span>Date</span>
           <span>Root Cause</span>
@@ -23,6 +42,18 @@ const CallExplorerPage = () => {
           <span>Agent</span>
           <span>Outcome</span>
         </div>
+
+        {/* <label for="audio" className={utilityStyles.button}>
+          Upload
+        </label>
+        <input
+          type="file"
+          accept="audio/mp3, audio/wav, audio/ogg, audio/mpeg, audio/x-wav, audio/midi"
+          name="audio"
+          id="audio"
+          style={{ display: "none" }}
+          onChange={handleAudioUpload}
+        /> */}
         <Call
           id="221b-05"
           date="Today"
@@ -120,7 +151,7 @@ const CallExplorerPage = () => {
               <span className={utilityStyles.heading1}>Call Summary</span>
               <span
                 className={utilityStyles.smallText}
-                style={{ marginTop: "1rem", marginRight: "1rem" }}
+                style={{ marginTop: "1rem", marginRight: "1rem", lineHeight: "1.5rem" }}
               >
                 Mr. Van Rooyen is behind on his mortgage payment. ABC Bank
                 proposes a repayment plan where he pays 65% of the total amount
@@ -154,22 +185,121 @@ const CallExplorerPage = () => {
               <Image src="/images/audio.png" width={348} height={31} />
             </div>
           </div>
-          <div className={callExplorerStyles.mainContent}>
-            <span>Call outcome</span>
-            <span>Promised to Pay</span>
-            <span>Agent ID</span>
-            <span>221b/Tsepo</span>
-            <span>Customer Sentiment</span>
-            <span>Neutral</span>
-            <span>Reason(s) for call</span>
-            <span>Payment Arrangements</span>
-            <span>Anchored Sentiment Keywords</span>
-            <span>Campaign(s)</span>
-          </div>
+          {currentTab == 1 ? (
+            <QuickView />
+          ) : currentTab == 2 ? (
+            <CallAnalytics
+              diarisedTranscription={[
+                {
+                  speaker: "agent",
+                  speech:
+                    "Good morning, Mr. Van Rooyen. This is Tsepo calling from ABC Bank. How are you today?",
+                },
+                {
+                  speaker: "customer",
+                  speech:
+                    "Good morning, Tsepo. I'm doing okay, thank you. How can I help you?",
+                },
+                {
+                  speaker: "agent",
+                  speech:
+                    "I'm calling regarding your delayed mortgage payment that was due in March. It seems you're currently behind on your payment. I wanted to discuss the situation and find a resolution that works for both parties.",
+                },
+                {
+                  speaker: "customer",
+                  speech:
+                    "Yes, I apologize for the delay. I've been going through some financial difficulties lately. I understand the seriousness of the matter and I'm committed to making things right.",
+                },
+                {
+                  speaker: "agent",
+                  speech:
+                    "I appreciate your understanding, Mr. Van Rooyen. Our primary objective is to help you get back on track with your payments. To that end, we have prepared a repayment schedule that can assist you in clearing your outstanding balance.",
+                },
+                {
+                  speaker: "customer",
+                  speech:
+                    "That sounds reasonable. Could you please provide me with the details of the repayment schedule?",
+                },
+              ]}
+            />
+          ) : currentTab == 3 ? (
+            <AgentScoreCard />
+          ) : currentTab == 4 ? (
+            <CallJourney />
+          ) : currentTab == 5 ? (
+            <CustomerInsight />
+          ) : null}
         </div>
       </div>
     </div>
   );
 };
 
-export default CallExplorerPage;
+const QuickView = () => {
+  return (
+    <div className={callExplorerStyles.mainContent}>
+      <span>Call outcome</span>
+      <span>Promised to Pay</span>
+      <span>Agent ID</span>
+      <span>221b/Tsepo</span>
+      <span>Customer Sentiment</span>
+      <span>Neutral</span>
+      <span>Reason(s) for call</span>
+      <span>Payment Arrangements</span>
+      <span>Anchored Sentiment Keywords</span>
+      <span>Campaign(s)</span>
+    </div>
+  );
+};
+
+const CallAnalytics = ({ diarisedTranscription }) => {
+  return (
+    <div className={callExplorerStyles.mainContent}>
+      {diarisedTranscription.map((element, idx) => {
+        return (
+          <div
+            key={`transcriptionItem${idx}`}
+            className={callExplorerStyles.transcriptionItem}
+          >
+            <span style={{ marginRight: "1rem" }}>
+              <FaUserCircle
+                size="2rem"
+                color={
+                  element.speaker == "agent" ? "var(--blue)" : "var(--grey)"
+                }
+              />
+            </span>
+            <span className={callExplorerStyles.transcriptionText}>
+              {element.speech}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const AgentScoreCard = () => {
+  return (
+    <div className={callExplorerStyles.mainContent}>
+      <span>Scorecard</span>
+    </div>
+  );
+};
+
+const CallJourney = () => {
+  return (
+    <div className={callExplorerStyles.mainContent}>
+      <span>Call Journey</span>
+    </div>
+  );
+};
+
+const CustomerInsight = () => {
+  return (
+    <div className={callExplorerStyles.mainContent}>
+      <span>Customer Insight</span>
+    </div>
+  );
+};
+export default withPageAuthRequired(CallExplorerPage);

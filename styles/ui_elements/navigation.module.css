@@ -25,7 +25,8 @@
   border-top: solid 3px #fff;
 }
 
-.section span {
+.section span,
+.section a {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -33,8 +34,12 @@
   width: 160px;
   cursor: pointer;
   color: #fff;
+  transition: all 500ms;
 }
 
+.section a {
+  text-decoration: none;
+}
 /* .section span:hover {
   background: rgb(217, 217, 217);
   background: linear-gradient(
@@ -46,7 +51,8 @@
   border-radius: 15px;
 } */
 
-.section span svg {
+.section span svg,
+.section a svg {
   margin-right: 1rem;
 }
 
@@ -57,7 +63,7 @@
     rgba(217, 217, 217, 0) 10%,
     rgba(217, 217, 217, 1) 100%
   );
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   border-radius: 15px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0px;

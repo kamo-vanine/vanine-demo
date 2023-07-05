@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+.campaignTable {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-top: 2rem;
+}
+
+.campaignTableHeader {
+  background-color: var(--blue);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.campaignTableHeader span {
+  color: #fff;
+  padding-left: 1rem;
+  border-right: solid 2px #fff;
+}
+
+.campaignTableHeader span:nth-of-type(6) {
+  border-right: none;
+}
+
+.campaignTableItem,
+.campaignTableHeader {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 1rem;
+}
+.campaignTableItem {
+  background-color: #d9d9d9;
+}
+
+.campaignTableItem:nth-of-type(even) {
+  background-color: var(--card-bg);
+}
+
+.campaignTableItem:last-of-type {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.campaignTableItem span {
+  text-align: center;
+}

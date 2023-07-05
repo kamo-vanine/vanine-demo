@@ -8,7 +8,7 @@ import { MdLocationPin, MdAccountCircle } from "react-icons/md";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-const Navigation = ({isDemo}) => {
+const Navigation = ({ isDemo }) => {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState("");
 
@@ -20,8 +20,10 @@ const Navigation = ({isDemo}) => {
     <div className={navigationStyles.container}>
       <div className={navigationStyles.section}>
         <span
-          onClick={() => router.push("/")}
-          className={currentRoute == "" ? navigationStyles.selected : ""}
+          onClick={() => router.push("/dashboard")}
+          className={
+            currentRoute == "dashboard" ? navigationStyles.selected : ""
+          }
         >
           <AiFillHome />
           Dashboard
@@ -51,7 +53,7 @@ const Navigation = ({isDemo}) => {
           <HiPuzzle />
           Campaign
         </span>
-        <span
+        {/* <span
           onClick={() => router.push("/integrations")}
           className={
             currentRoute == "integrations" ? navigationStyles.selected : ""
@@ -59,7 +61,7 @@ const Navigation = ({isDemo}) => {
         >
           <BsShareFill />
           Integrations
-        </span>
+        </span> */}
       </div>
       <div className={navigationStyles.section}>
         <span
@@ -78,13 +80,13 @@ const Navigation = ({isDemo}) => {
           <MdAccountCircle />
           Account
         </span>
-        <span
-          onClick={() => router.push("/logout")}
+        <a
+          href="/api/auth/logout"
           className={currentRoute == "logout" ? navigationStyles.selected : ""}
         >
           <BiLogOut />
           Log Out
-        </span>
+        </a>
       </div>
     </div>
   );
