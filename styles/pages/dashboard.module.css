@@ -1,0 +1,37 @@
+.container {
+  height: 100%;
+}
+
+.dashboardHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboardHeader div:first-of-type {
+  margin-right: 1rem;
+}
+
+.selectedHeader {
+  background-color: var(--light-blue) !important;
+}
+
+.headerOptions {
+  display: flex;
+  flex-direction: row;
+}
+
+.headerOptions div {
+  background-color: var(--card-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.content {
+  margin-top: 1rem;
+  height: 100%;
+  /* background-color: var(--grey); */
+  border-radius: 5px;
+  padding: 1rem;
+}

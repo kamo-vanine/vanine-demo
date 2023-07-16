@@ -33,6 +33,7 @@
   --light-blue: #eceff7;
   --nav-bg: #293a68;
   --nav-bg-shadow: #293a6885;
+  --border-radius: 10px;
 }
 
 * {

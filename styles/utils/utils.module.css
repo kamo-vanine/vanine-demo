@@ -22,3 +22,13 @@
 .button:hover {
   cursor: pointer;
 }
+
+.largeButton {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 170px;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: 500;
+}

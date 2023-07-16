@@ -1,0 +1,49 @@
+.container {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  position: relative;
+  width: 200px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: var(--card-bg);
+  width: 100%;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  padding-top: 1rem
+}
+
+.option {
+  width: 100%;
+  border-bottom: solid 1px #00000019;
+  padding: 0.25rem 1rem;
+}
+
+.option:last-of-type {
+  border: none;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.option:hover {
+  background-color: var(--light-blue);
+}
+
+.input {
+  width: 100%;
+  background-color: var(--card-bg);
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.input::placeholder {
+  color: var(--font)
+}
