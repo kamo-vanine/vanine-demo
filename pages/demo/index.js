@@ -1,6 +1,6 @@
 import clientPromise from "../../lib/mongodb";
-import Header from "../../components/ui_elements/Header";
-import Navigation from "../../components/ui_elements/Navigation";
+import LandingHeader from "../../components/ui_elements/LandingHeader";
+import demoLandingStyles from "../../styles/pages/demoLanding.module.css";
 
 export const getServerSideProps = async () => {
   try {
@@ -19,8 +19,11 @@ export const getServerSideProps = async () => {
 
 export default function Home({ isConnected }) {
   return (
-    <div>
-      <Navigation isDemo/>
+    <div className={demoLandingStyles.container}>
+      <LandingHeader />
+      <div>
+        <span>Try our services</span>
+      </div>
     </div>
   );
 }

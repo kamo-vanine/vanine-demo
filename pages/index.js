@@ -53,6 +53,7 @@ export default function Home({ isConnected }) {
           _id: generateId(),
           name: user.name,
           company: "",
+          companyId: "",
           position: "manager",
           campaigns: [],
           email: user.email,
@@ -68,14 +69,15 @@ export default function Home({ isConnected }) {
     }
   };
 
-  const handleLogin = async () => {
-    // if (!(await isManagerInDb())) {
-    //   addManagerToDb();
-    // }
+  const handleLogin = async (isManual) => {
     if (!(await isManagerInDb())) {
-      window.alert("You do not have access to the Vanine");
-      router.push("/api/auth/logout");
-      return;
+      if (isManual) {
+        window.alert("You do not have access to the Vanine");
+        router.push("/api/auth/logout");
+        return;
+      } else {
+        addManagerToDb();
+      }
     }
     router.push("/dashboard");
   };
@@ -92,12 +94,16 @@ export default function Home({ isConnected }) {
     if (!isLoading && user) {
       console.log(user);
       try {
-        handleLogin();
+        handleLogin(true);
       } catch (e) {
         console.error(e);
       }
     }
   }, [isLoading]);
+
+  useEffect(() => {
+    console.log(isConnected);
+  }, []);
 
   return (
     <div className={landingStyles.container}>

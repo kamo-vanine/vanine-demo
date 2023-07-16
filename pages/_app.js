@@ -14,6 +14,10 @@ function MyApp({ Component, pageProps }) {
     );
   }
 
+  if (router.pathname.split("/")[1] == "demo") {
+    return <Component {...pageProps} />;
+  }
+
   return (
     <UserProvider>
       <NavLayout>
