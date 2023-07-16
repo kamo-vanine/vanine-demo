@@ -1,4 +1,0 @@
-- Create routes for demo section of app
-  - This is so that I can build the entire app here. So the demo section will be accessed via /demo/... routes and the actual
-    app will be /...
-- Create api routes
