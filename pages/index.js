@@ -7,11 +7,7 @@ import signUpStyles from "../styles/pages/signUp.module.css";
 import { CgTranscript } from "react-icons/cg";
 import { MdAnalytics, MdRocketLaunch } from "react-icons/md";
 import { BiLineChart } from "react-icons/bi";
-import Image from "next/image";
-import Link from "next/link";
-import utilityStyles from "../styles/utils/utils.module.css";
 import landingStyles from "../styles/pages/landing.module.css";
-import logo from "../public/images/logo.svg";
 export const getServerSideProps = async () => {
   try {
     await clientPromise;
@@ -110,7 +106,7 @@ export default function Home({ isConnected }) {
       <div className={landingStyles.header}>
         <img src="/images/logo.svg" width={107.1} height={70} className />
         <a
-          href={`mailto:kamo@vanine.co.za?subject=Request to Sign up for Vanine`}
+          href={`mailto:hi@vanine.co.za?subject=Request to Sign up for Vanine`}
           className={landingStyles.button}
           style={{ backgroundColor: "#000", color: "#fff", margin: "1rem" }}
         >

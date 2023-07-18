@@ -1,12 +1,24 @@
+// Importing the necessary CSS module for styling the component.
 import navigationStyles from "../../styles/ui_elements/navigation.module.css";
+
+// Importing required icons for the navigation links.
 import { AiFillHome } from "react-icons/ai";
 import { BiLogOut } from "react-icons/bi";
-import { BsShareFill } from "react-icons/bs";
 import { IoIosCall, IoIosSettings } from "react-icons/io";
 import { HiPuzzle } from "react-icons/hi";
 import { MdLocationPin, MdAccountCircle } from "react-icons/md";
+
+// Importing Next.js router to handle navigation between pages.
 import { useRouter } from "next/router";
+
+// Importing React hooks for state and side effects.
 import { useState, useEffect } from "react";
+
+/**
+ * Navigation Component
+ * @param {boolean} isDemo - Flag to indicate whether the navigation is in demo mode.
+ * @returns {JSX.Element} - Returns a React component representing the navigation menu.
+ */
 
 const Navigation = ({ isDemo }) => {
   const router = useRouter();
@@ -17,6 +29,7 @@ const Navigation = ({ isDemo }) => {
   }, [router.pathname]);
 
   return (
+    // Container for the navigation menu, applying specific CSS styles.
     <div className={navigationStyles.container}>
       <div className={navigationStyles.section}>
         <span

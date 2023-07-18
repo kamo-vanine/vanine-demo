@@ -1,6 +1,20 @@
+// Importing required React Icons for the dropdown arrows.
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
+// Importing React hooks to use state and side effects.
 import { useState, useEffect } from "react";
+// Importing the necessary CSS module for styling the component.
 import customSelectStyles from "../../styles/ui_elements/customSelect.module.css";
+
+/**
+ * CustomSelect Component
+ * @param {string} id - The unique identifier for the custom select component.
+ * @param {string} title - The title or label of the custom select component.
+ * @param {string[]} options - An array of options to display in the select dropdown.
+ * @param {boolean} showSelectedOptionAsTitle - Flag to determine whether to show the selected option as the title.
+ * @param {boolean} isSearch - Flag to indicate whether the custom select is a searchable dropdown.
+ * @param {string} value - The pre-selected value to be shown as the default selected option (if provided).
+ * @returns {JSX.Element} - Returns a React component representing a custom select dropdown.
+ */
 
 const CustomSelect = ({
   id,
@@ -9,7 +23,9 @@ const CustomSelect = ({
   showSelectedOptionAsTitle,
   isSearch,
   value,
+  handleChange
 }) => {
+  // State variables to manage the component behavior.
   const [showOptions, setShowOptions] = useState(false);
   const [optionsToDisplay, setOptionsToDisplay] = useState(options);
   const [selectedOption, setSelectedOption] = useState("");

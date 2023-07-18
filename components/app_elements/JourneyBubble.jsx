@@ -1,4 +1,15 @@
+// Importing the necessary CSS module for styling the component.
 import journeyBubbleStyles from "../../styles/app_elements/journeyBubble.module.css";
+
+/**
+ * JourneyBubble Component
+ * @param {string} colour - The background color of the bubble.
+ * @param {string} shadowColour - The shadow color of the bubble when hovered (if not selected).
+ * @param {number} numOccurence - The occurrence count associated with the bubble.
+ * @param {boolean} isSelected - Indicates whether the bubble is currently selected.
+ * @param {Object} bubble - An object containing additional data for the bubble when selected.
+ * @returns {JSX.Element} - Returns a React component representing a journey bubble.
+ */
 
 const JourneyBubble = ({
   colour,
@@ -7,6 +18,19 @@ const JourneyBubble = ({
   isSelected,
   bubble,
 }) => {
+
+   /**
+   * Generate Random Margin
+   * Generates a random margin value within specified ranges based on numOccurence.
+   * @param {number} numOccurence - The occurrence count associated with the bubble.
+   * @param {number} upper - The upper range for the random margin calculation.
+   * @param {number} lower - The lower range for the random margin calculation.
+   * @returns {number} - Returns the generated margin value.
+   */
+  
+  const generateMargin = (numOccurence, upper, lower) => {
+    return (numOccurence / 100) * (Math.random() * (upper - lower) + upper);
+  };
   return (
     <div
       className={`${journeyBubbleStyles.container} ${
@@ -22,24 +46,12 @@ const JourneyBubble = ({
       }}
       style={{
         backgroundColor: colour,
-        marginTop: `${
-          (numOccurence / 100) * (Math.random() * (25 - 15) + 15)
-        }rem`,
-        marginBottom: `${
-          (numOccurence / 100) * (Math.random() * (10 - 5) + 5)
-        }rem`,
-        marginRight: `${
-          (numOccurence / 100) * (Math.random() * (25 - 15) + 15)
-        }rem`,
-        marginLeft: `${
-          (numOccurence / 100) * (Math.random() * (10 - 5) + 5)
-        }rem`,
-        width: `${
-          (numOccurence > 10 ? numOccurence / 100 : 0.1) * 1500
-        }px`,
-        height: `${
-          (numOccurence > 10 ? numOccurence / 100 : 0.1) * 1500
-        }px`,
+        marginTop: `${generateMargin(numOccurence, 25, 15)}rem`,
+        marginBottom: `${generateMargin(numOccurence, 10, 5)}rem`,
+        marginRight: `${generateMargin(numOccurence, 25, 15)}rem`,
+        marginLeft: `${generateMargin(numOccurence, 10, 5)}rem`,
+        width: `${(numOccurence > 10 ? numOccurence / 100 : 0.1) * 1500}px`,
+        height: `${(numOccurence > 10 ? numOccurence / 100 : 0.1) * 1500}px`,
       }}
     >
       {!isSelected ? (

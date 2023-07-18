@@ -1,4 +1,8 @@
+// Importing the withPageAuthRequired function from "@auth0/nextjs-auth0/client"
+// to protect the CampaignPage with authentication.
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
+
+// Importing styles required for the CampaignPage.
 import campaignStyles from "../styles/pages/campaign.module.css";
 import utilityStyles from "../styles/utils/utils.module.css";
 import { useEffect } from "react";
@@ -10,6 +14,8 @@ const CampaignPage = () => {
   const [campaignsToDisplay, setCampaignsToDisplay] = useState([]);
   const router = useRouter();
 
+  // Function to create random campaigns.
+  // NOTE: This is done with dummy data at the moment, but will be implemented using information from the database
   const createCampaigns = (iter) => {
     let newCampaigns = [];
 

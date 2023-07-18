@@ -14,23 +14,6 @@ const CallExplorerPage = () => {
 
   const getCall = async () => {};
 
-  const handleAudioUpload = async (e) => {
-    const file = document.querySelector("#audio").files[0];
-
-    //Call api to handle audio details
-
-    // try {
-    //   await fetch(`${process.env.NEXT_PUBLIC_API_URL}calls`, {
-    //     method: "POST",
-    //     headers: { "Content-type": "application/json" },
-    //     body: JSON.stringify({}),
-    //   });
-    // } catch (e) {
-    //   console.error(e);
-    // }
-    console.log(file);
-  };
-
   return (
     <div className={callExplorerStyles.container}>
       <div className={callExplorerStyles.section}>
@@ -151,7 +134,11 @@ const CallExplorerPage = () => {
               <span className={utilityStyles.heading1}>Call Summary</span>
               <span
                 className={utilityStyles.smallText}
-                style={{ marginTop: "1rem", marginRight: "1rem", lineHeight: "1.5rem" }}
+                style={{
+                  marginTop: "1rem",
+                  marginRight: "1rem",
+                  lineHeight: "1.5rem",
+                }}
               >
                 Mr. Van Rooyen is behind on his mortgage payment. ABC Bank
                 proposes a repayment plan where he pays 65% of the total amount

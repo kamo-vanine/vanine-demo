@@ -1,4 +1,8 @@
+// Importing the withPageAuthRequired function from "@auth0/nextjs-auth0/client"
+// to protect the CallJourneyPage with authentication.
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
+
+// Importing components and styles required for the CallJourneyPage.
 import JourneyBubble from "../components/app_elements/JourneyBubble";
 import callJourneyStyles from "../styles/pages/callJourney.module.css";
 import { useState } from "react";
@@ -7,11 +11,16 @@ import { HiX } from "react-icons/hi";
 import utilityStyles from "../styles/utils/utils.module.css";
 
 const CallJourneyPage = () => {
+  // Array of colours used for the JourneyBubbles.
   const colours = ["red", "green", "amber", "blue", "font", "nav-bg"];
+
+  // State variables for managing JourneyBubbles and BubbleView.
   const [journeyBubbles, setJourneyBubbles] = useState([]);
   const [isBubbleViewOn, setIsBubbleViewOn] = useState(false);
   const [selectedBubble, setSelectedBubble] = useState(null);
 
+  // Function to create random JourneyBubbles.
+  // NOTE: This is done with dummy data at the moment, but will be implemented using information from the database
   const createJourneyBubbles = (iter) => {
     let newJourneyBubbles = [];
     for (let i = 0; i < iter; i++) {
@@ -51,10 +60,6 @@ const CallJourneyPage = () => {
   useEffect(() => {
     createJourneyBubbles(15);
   }, []);
-
-  // if (isBubbleViewOn) {
-  //   return <BubbleView id={selectedBubbleId} />;
-  // }
 
   return (
     <div

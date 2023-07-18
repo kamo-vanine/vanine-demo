@@ -17,6 +17,7 @@
   width: fit-content;
   max-width: fit-content;
   height: fit-content;
+  border: none;
 }
 
 .button:hover {
@@ -31,4 +32,5 @@
   text-align: center;
   white-space: nowrap;
   font-weight: 500;
+  border: none;
 }

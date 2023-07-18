@@ -1,31 +1,15 @@
 import { withPageAuthRequired } from "@auth0/nextjs-auth0/client";
-import { useUser } from "@auth0/nextjs-auth0/client";
-import { useEffect } from "react";
 import dashboardStyles from "../styles/pages/dashboard.module.css";
 import { useState } from "react";
 import CustomSelect from "../components/ui_elements/CustomSelect";
 import Image from "next/image";
 const DashboardPage = () => {
-  const [currentTab, setCurrentTab] = useState(0);
   const [period, setPeriod] = useState("Today");
 
   return (
     <div className={dashboardStyles.container}>
       <div className={dashboardStyles.dashboardHeader}>
-        <div className={dashboardStyles.headerOptions}>
-          {/* <div
-            className={currentTab == 0 ? dashboardStyles.selectedHeader : ""}
-            onClick={() => setCurrentTab(0)}
-          >
-            Main Analytics
-          </div> */}
-          {/* <div
-            className={currentTab == 1 ? dashboardStyles.selectedHeader : ""}
-            onClick={() => setCurrentTab(1)}
-          >
-            Vanine Analytics
-          </div> */}
-        </div>
+        <div className={dashboardStyles.headerOptions}></div>
         <CustomSelect
           id="periodFilter"
           title="Select"
@@ -36,11 +20,7 @@ const DashboardPage = () => {
         />
       </div>
       <div className={dashboardStyles.content}>
-        {currentTab == 0 ? (
-          <MainAnalytics />
-        ) : currentTab == 1 ? (
-          <VanineAnalytics />
-        ) : null}
+        <MainAnalytics />
       </div>
     </div>
   );
